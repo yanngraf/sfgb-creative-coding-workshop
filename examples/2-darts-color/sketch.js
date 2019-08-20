@@ -1,3 +1,8 @@
+// Schule für Gestaltung, Basel
+// Creative Coding Workshop
+// Yann Graf + Roger Aeschbach
+// Can be found online here: https://editor.p5js.org/yanngraf/sketches/MrWW2sPlu
+
 let scl = 115;
 let noiseVal;
 let counter = 0;
@@ -43,7 +48,6 @@ function draw() {
       center_x = x+noiseVal;
       center_y = y+noiseVal;
 
-      print (newColorSet);
       fill(getColor(column,row,0));
       triangle(x,y,center_x,center_y,x,y+scl);
 
@@ -83,12 +87,12 @@ function getColor (column, row,id) {
   return newColorSet[column][row][id];
 }
 
+// Maps the position of the mouse to a number between 10 - 100
 function mouseMoved() {
-  //shuffleArray(colorSet);
   scl = map(mouseX,0,300,10,100);
 }
 
-
+// Function to shuffle the repartition of the colors in the square
 function shuffleArray(array) {
   for (let i = array.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));

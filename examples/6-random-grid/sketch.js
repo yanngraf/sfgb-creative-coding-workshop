@@ -1,6 +1,13 @@
-let c;
+// Schule für Gestaltung, Basel
+// Creative Coding Workshop
+// Yann Graf + Roger Aeschbach
+// Can be found online here: https://editor.p5js.org/yanngraf/sketches/MrWW2sPlu
+
+
+
 let wScl = 20;
 let hScl = 20;
+let c;
 
 function setup() {
   createCanvas(400, 400);
