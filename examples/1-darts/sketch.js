@@ -19,9 +19,9 @@ function draw() {
   stroke(255);
   strokeWeight(2);
   
-  for (var x = 0; x < height; x = x+scl) {
+  for (var x = 0; x < width; x = x+scl) {
 
-    for(var y = 0; y < width; y=y+scl){
+    for(var y = 0; y < height; y=y+scl){
 
       noiseVal = noise(x+counter,y);
       noiseVal = map(noiseVal,0,1,0,scl);

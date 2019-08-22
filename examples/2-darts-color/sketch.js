@@ -24,14 +24,14 @@ function setup() {
 function draw() {
   column = 1;
   
-  for (var x = 0; x < height; x = x+scl) {
+  for (var x = 0; x < width; x = x+scl) {
     
     if (initializeFrame == 0) {
       newColorSet[column] = [] ;
     }
     row = 1;
     
-    for(var y = 0; y < width; y=y+scl){
+    for(var y = 0; y < height; y=y+scl){
 
       if (initializeFrame == 0) {
 
