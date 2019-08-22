@@ -10,4 +10,4 @@ Notes:
 - Run it in Chrome/Firefox
 
 
-[iamge](screenshots/sketch1.png)
+[image](presentation/screenshots/sketch1.png)
