@@ -5,9 +5,9 @@
 // Yann Graf + Roger Aeschbach
 // Can be found online here: https://editor.p5js.org/yanngraf/sketches/4J-CxSydF
 
-let scl =5;
+let scl =10;
 let speed = 0.22000;
-let noiseVal;3
+let noiseVal;
 let counter = 1;
 
 

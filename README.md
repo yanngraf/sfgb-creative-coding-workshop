@@ -8,3 +8,6 @@ Notes:
 - You will need to run it on a local server, otherwise the sketches with fonts, won't load.
 - Limit the random max to 13 (in the index.html) I not run on localhost or web server
 - Run it in Chrome/Firefox
+
+
+[iamge](screenshots/sketch1.png)
