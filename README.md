@@ -10,4 +10,4 @@ Notes:
 - Run it in Chrome/Firefox
 
 
-[image](presentation/screenshots/sketch1.png)
+![sketch 1](presentation/screenshots/sketch1.png)
