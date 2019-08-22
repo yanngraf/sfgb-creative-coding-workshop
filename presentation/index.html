@@ -1,0 +1,30 @@
+<html>
+<head>
+<script>
+
+setTimeout(function(){ 
+    location.href = "";
+    }, 12000);
+
+</script>
+    <script src="js/p5.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="utf-8">
+</head>
+<body>
+
+<script>
+// Generate a random number
+var min=1; 
+var max=18; // add more than the number of sketches  
+var random = 
+Math.floor(Math.random() * (+max - +min)) + +min; 
+
+var sketchID = random;
+
+document.write('<script src="js/sketch' + sketchID + '.js"><\/script>'); // Don't forget to escape the forward slash in closing script tag.
+
+</script>
+
+</body>
+</html>
