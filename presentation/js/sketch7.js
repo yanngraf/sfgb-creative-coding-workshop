@@ -1,61 +1,24 @@
-// orginial https://editor.p5js.org/cinzia/sketches/lsieAIkl7
+// orginial https://editor.p5js.org/Sarah.R/sketches/KEpK8iawC
 
 // Schule für Gestaltung, Basel
 // Creative Coding Workshop
 // Yann Graf + Roger Aeschbach
-// Example sketch to show text function capacities
-// https://editor.p5js.org/yanngraf/sketches/_Tpo8Ilp-
-
-let wScl = 40;
-let hScl =30;
-let word = [];
-word = ["e","v","e","n","t","u","a","l","i","s","m","u","s","!"];
-
-let counter = 0;
-let loop = 0;
-let c = 0;
-let letterID = 0;
-
-function preload() {
-  fontGrenze = loadFont('fonts/Grenze-Black.ttf');
-}
+// Can be found online here: https://editor.p5js.org/yanngraf/sketches/MrWW2sPlu
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  strokeWeight(0);
-  textFont(fontGrenze);
-  textAlign(CENTER,CENTER);
-  textSize(150);
 }
 
 function draw() {
-  // draw the columns
-  for (var y = 0; y < windowHeight; y += hScl) {
-    // draw the ligns
-    for (var x = 0; x < windowWidth; x += wScl) {
-      // reset the counter if reached the end of the word
-      if (counter > (word.length)-1) { 
-        counter = 0;
-      }
-      
-      c = color("#660000");
-      fill(c);
+  
+  let speedcounter = 0;
+  for (var x=3; x < 10; x = x+10) {
 
-      letterID = Math.round(random(0,word.length));
+    let speed = abs(winMouseX - pwinMouseX);
 
-      // if mouse moves, draw a new grid
-      if (loop < 1) {
-        rect(x, y, wScl, hScl);
-        fill("#ff9999");
-        text(word[counter], x+(wScl/2), y+(hScl/2));
-      }
-      counter++
-    }
+    fill(color(mouseX+x,mouseY,200));
+    ellipse(mouseX+x,mouseY+speedcounter,speed,speed);
+
+    speedcounter += (speed/3);
   }
- loop++;
-}
-
-// If the mouse moves, reset loop, do force a new grid
-function mouseMoved() {
-  loop = 0;
 }

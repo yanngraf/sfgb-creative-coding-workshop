@@ -1,15 +1,14 @@
-// orginial https://editor.p5js.org/nuschki/sketches/29jYWQXP-
+// orginial https://editor.p5js.org/MotherfuckingVinc/sketches/4N1bfABP5
 
 // Schule für Gestaltung, Basel (2019)
 // Creative Coding Workshop
 // Yann Graf + Roger Aeschbach
 // Can be found online here: https://editor.p5js.org/yanngraf/sketches/4J-CxSydF
 
-let scl = 20;
-let speed = 0.00002;
+let scl = 50;
+let speed = 0.005;
 let noiseVal;
 let counter = 0;
-
 
 
 function setup() {
@@ -18,17 +17,10 @@ function setup() {
 
 function draw() {
   
-  background("purple");
+  background(0);
   noFill(fill);
-  stroke("pink");
-  strokeWeight(3);
-  
-  fill(random(0,200))
-  ellipse(windowWidth/2,windowHeight/2,300,300)
-  
-   fill("purple")
-  ellipse(windowWidth/2,windowHeight/2,100,100)
-
+  stroke(random(0,255), random(0,255), random(0,255));
+  strokeWeight(5);
   
   for (var x = 0; x < windowWidth; x = x+scl) {
 

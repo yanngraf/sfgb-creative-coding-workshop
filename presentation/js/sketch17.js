@@ -1,44 +1,61 @@
-// orginial https://editor.p5js.org/andrea444/sketches/BfB_yASUa
+// orginial https://editor.p5js.org/MotherfuckingVinc/sketches/HyuC85wLj
 
-// Schule für Gestaltung, Basel (2019)
+// Schule für Gestaltung, Basel
 // Creative Coding Workshop
 // Yann Graf + Roger Aeschbach
-// Can be found online here: https://editor.p5js.org/yanngraf/sketches/4J-CxSydF
+// Example sketch to show text function capacities
+// https://editor.p5js.org/yanngraf/sketches/_Tpo8Ilp-
 
-let scl = 100;
-let speed = 2.00005;
-let noiseVal;
+let wScl = 100;
+let hScl = 100;
+let word = [];
+word = ["sfg",".bs","sfg",".bs","sfg",".bs","sfg",".bs","sfg",".bs","sfg",".bs","sfg",".bs"];
+
 let counter = 0;
+let loop = 0;
+let c = 0;
+let letterID = 0;
+
+function preload() {
+  fontGrenze = loadFont('fonts/Grenze-Black.ttf');
+}
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
+  strokeWeight(0);
+  textFont(fontGrenze);
+  textAlign(CENTER,CENTER);
+  textSize(60);
 }
 
 function draw() {
-  
-  background(0,0,);
-  noFill(fill);
-  stroke(255);
-  strokeWeight(6);
-  
-  for (var x = 0; x < windowWidth; x = x+scl) {
+  // draw the columns
+  for (var y = 0; y < windowHeight; y += hScl) {
+    // draw the ligns
+    for (var x = 0; x < windowWidth; x += wScl) {
+      // reset the counter if reached the end of the word
+      if (counter > (word.length)-1) { 
+        counter = 0;
+      }
+      
+      c = color(random(0,255),random(0,255), random(0,255));
+      fill(c);
 
-    for(var y = 0; y < windowHeight; y=y+scl){
+      letterID = Math.round(random(0,word.length));
 
-      noiseVal = noise(x+counter,y);
-      noiseVal = map(noiseVal,0,1,0,scl);
-      center_x = x+noiseVal;
-      center_y = y+noiseVal;
-
-      // Draw 5 lines to the center
-      line (x,y,center_x,center_y);
-      stroke (random(0,255));
-      line (center_x,center_y,x+scl,y);
-      stroke (random(0,255),random(0,255),random(0,255));
-      line (x,y+scl,center_x,center_y);
-      line (center_x,center_y,x+scl,y+scl);
-
-      counter = counter + speed;
-    }     
+      // if mouse moves, draw a new grid
+      if (loop < 1) {
+        rect(x, y, wScl, hScl);
+        fill(random(0,255), random(0,255), random(0,255));
+        text(word[counter], x+(wScl/2), y+(hScl/2));
+      }
+      counter++
+    }
   }
+ loop++;
+}
+
+// If the mouse moves, reset loop, do force a new grid
+function mouseMoved() {
+  loop = 0;
 }

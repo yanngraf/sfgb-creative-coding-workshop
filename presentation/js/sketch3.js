@@ -1,61 +1,44 @@
-// orginial https://editor.p5js.org/lucc/sketches/Pz6H-Nfsz
+// Original https://editor.p5js.org/ayyln/sketches/MjhnfG8Bx
 
-// Schule für Gestaltung, Basel
+// Schule für Gestaltung, Basel (2019)
 // Creative Coding Workshop
 // Yann Graf + Roger Aeschbach
-// Example sketch to show text function capacities
-// https://editor.p5js.org/yanngraf/sketches/_Tpo8Ilp-
+// Can be found online here: https://editor.p5js.org/yanngraf/sketches/4J-CxSydF
 
-let wScl = 80;
-let hScl = 100;
-let word = [];
-word = ["h","a","l","l","o","d","u","s","a","u","h","u","n","d"];
-
+let scl =5;
+let speed = 0.22000;
+let noiseVal;3
 let counter = 1;
-let loop = 1;
-let c = 0;
-let letterID = 50;
 
-function preload() {
-  fontGrenze = loadFont('fonts/LexendDeca-Regular.ttf');
-}
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  strokeWeight(40);
-  textFont(fontGrenze);
-  textAlign(CENTER,CENTER);
-  textSize(150);
 }
 
 function draw() {
-  // draw the columns
-  for (var y = 0; y < windowHeight; y += hScl) {
-    // draw the ligns
-    for (var x = 0; x < windowWidth; x += wScl) {
-      // reset the counter if reached the end of the word
-      if (counter > (word.length)-1) { 
-        counter = 0;
-      }
-      
-      c = color(random(0,000));
-      fill("red");
+  
+  background(100,30,40,20);
+  noFill(fill);
+  stroke(150);
+  strokeWeight(1);
+  
+  for (var x = 0; x < windowWidth; x = x+scl) {
 
-      letterID = Math.round(random(0,word.length));
+    for(var y = 0; y < windowHeight; y=y+scl){
 
-      // if mouse moves, draw a new grid
-      if (loop < 0.4) {
-        rect(x, y, wScl, hScl);
-        fill("blue");
-        text(word[counter], x+(wScl/2), y+(hScl/2));
-      }
-      counter++
-    }
+      noiseVal = noise(x+counter,y);
+      noiseVal = map(noiseVal,0,1,0,scl);
+      center_x = x+noiseVal;
+      center_y = y+noiseVal;
+
+      // Draw 5 lines to the center
+      line (x,y,center_x,center_y);
+      fill("green");
+      line (center_x,center_y,x+scl,y);
+      line (x,y+scl,center_x,center_y);
+      line (center_x,center_y,x+scl,y+scl);
+
+      counter = counter + speed;
+    }     
   }
- loop++;
-}
-
-// If the mouse moves, reset loop, do force a new grid
-function mouseMoved() {
-  loop = 0;
 }

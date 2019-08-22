@@ -1,15 +1,15 @@
-// Original https://editor.p5js.org/ayyln/sketches/MjhnfG8Bx
+// Original https://editor.p5js.org/remmse/sketches/NswlDrWAa
+
 
 // Schule für Gestaltung, Basel (2019)
 // Creative Coding Workshop
 // Yann Graf + Roger Aeschbach
 // Can be found online here: https://editor.p5js.org/yanngraf/sketches/4J-CxSydF
 
-let scl =5;
-let speed = 0.22000;
-let noiseVal;3
-let counter = 1;
-
+let scl = 10;
+let speed = 0.00005;
+let noiseVal;
+let counter = 0;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -17,10 +17,10 @@ function setup() {
 
 function draw() {
   
-  background(100,30,40,20);
+  background(0);
   noFill(fill);
-  stroke(150);
-  strokeWeight(1);
+  stroke(255);
+  strokeWeight(2);
   
   for (var x = 0; x < windowWidth; x = x+scl) {
 
@@ -33,7 +33,6 @@ function draw() {
 
       // Draw 5 lines to the center
       line (x,y,center_x,center_y);
-      fill("green");
       line (center_x,center_y,x+scl,y);
       line (x,y+scl,center_x,center_y);
       line (center_x,center_y,x+scl,y+scl);
